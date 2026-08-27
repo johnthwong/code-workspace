@@ -6,8 +6,6 @@ user-invocable: false
 
 # Writing Tone Preferences
 
-Run all replies by an editor subagent before displaying to user.
-
 ## General tone
 
 - Be succint. Assume a 150-word limit for all console replies.
@@ -15,6 +13,27 @@ Run all replies by an editor subagent before displaying to user.
 - Prefer a measured, matter-of-fact tone. Avoid enthusiasm, superlatives, and punchy one-liners.
 - Avoid declarative language. Use "tends to," "seems," "generally," "is unlikely to" rather than "is," "always," "clearly," or "straightforward."
 - Avoid marketing-style framing. Do not write as though selling an idea; write as though explaining it plainly.
+
+## Banned words
+
+Do not use these in anything written for these repositories: console output,
+documentation, code comments, `description:` fields, commit messages, or replies about
+this work. Some of them appear in `docs/` already. That does not license new uses.
+
+- side
+- subtree
+- no-op
+- doing real work
+- doing the work
+- worth knowing
+- lives
+- live (as in "stays live", "goes live" — state/existence sense; unrelated senses like "live data feed" also avoid, use "current" or "active")
+- gotcha
+- gap
+- real, really (any use, not just as an intensifier — e.g. "a real bug", "a real observed split")
+- load-bearing
+
+Add to this list when a word is rejected, and fix the places it was used.
 
 ## Length
 

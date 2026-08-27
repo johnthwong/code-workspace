@@ -2,37 +2,9 @@
 
 ## Responses
 
-Be succinct. Answer the question, report what changed, stop. No preamble, no recap of work the
-user just watched, no summary section restating the body. See `writing-tone` for prose written
-into files.
+Run all replies by an editor subagent before displaying to user. See `writing-tone` for editorial standards.
 
-Respond in plain English. Avoid programming jargon.
-
-Don't dress up a mechanism's normal, always-true behavior as a caveat or edge case. Only flag
-something that could actually surprise someone who already understands how it works. Review a
-reply against the banned-words list below before sending it — this applies to chat replies, not
-just files.
-
-## Banned words
-
-Do not use these in anything written for these repositories: console output,
-documentation, code comments, `description:` fields, commit messages, or replies about
-this work. Some of them appear in `docs/` already. That does not license new uses.
-
-- side
-- subtree
-- no-op
-- doing real work
-- doing the work
-- worth knowing
-- lives
-- live (as in "stays live", "goes live" — state/existence sense; unrelated senses like "live data feed" also avoid, use "current" or "active")
-- gotcha
-- gap
-- real, really (any use, not just as an intensifier — e.g. "a real bug", "a real observed split")
-- load-bearing
-
-Add to this list when a word is rejected, and fix the places it was used.
+Respond in plain English. Avoid programming jargon. Assume a 150-word limit for console responses.
 
 ## Skills
 
@@ -58,6 +30,6 @@ are never auto-approved and prompt every time.
 
 ## Repository layout
 
-`.claude/` is a version-controlled repository containing shared skills and configuration.
+Root is a version-controlled repository containing across-repo Claude skills and configuration.
 
 Individual project repositories are sibling directories (e.g., `capital-gains-upgrade/`, `tariff-revenue/`). Some have their own `.claude/skills/` for project-specific skills.
