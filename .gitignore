@@ -1,0 +1,10 @@
+# Block everything by default
+/*
+
+# Unblock your configuration files and directories
+!CLAUDE.md
+!settings.local.json
+!commands/
+!skills/
+!hooks/
+!.gitignore
