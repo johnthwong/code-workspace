@@ -3,8 +3,17 @@
 
 # Unblock your configuration files and directories
 !CLAUDE.md
-!settings.local.json
-!commands/
-!skills/
-!hooks/
 !.gitignore
+
+# .claude/ holds shared config; unblock it, reblock its contents,
+# then unblock the specific files and directories we want tracked
+!/.claude/
+/.claude/*
+!/.claude/.gitignore
+!/.claude/settings.local.json
+!/.claude/commands/
+!/.claude/skills/
+!/.claude/hooks/
+
+# Block .DS_Store everywhere, even inside unblocked directories
+.DS_Store

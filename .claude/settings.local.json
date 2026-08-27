@@ -1,0 +1,72 @@
+{
+  "env": {
+    "RENV_WATCHDOG_ENABLED": "FALSE"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(Rscript *)",
+      "Bash(gfortran --version)",
+      "Bash(brew list *)",
+      "Bash(gh pr *)",
+      "Bash(git ls-tree *)",
+      "Bash(git fetch *)",
+      "Skill(update-config)",
+      "Bash(git rev-list *)",
+      "Bash(git checkout *)",
+      "Bash(gh issue *)",
+      "Bash(copilot --help)",
+      "Bash(gh release *)",
+      "Bash(git ls-remote *)",
+      "Bash(gh run *)",
+      "Bash(git mv *)",
+      "Bash(git tag *)",
+      "Bash(gh repo *)",
+      "Bash(python3 gen_brief.py)",
+      "Bash(python3 gen_faq.py)",
+      "Bash(git log *)",
+      "Bash(git diff *)",
+      "Bash(git --no-pager diff --stat)",
+      "Bash(git status *)",
+      "Bash(git remote *)",
+      "Bash(git branch *)"
+    ]
+  },
+  "sandbox": {
+    "enabled": true,
+    "autoAllowBashIfSandboxed": false,
+    "filesystem": {
+      "allowWrite": [
+        "~/Library/Caches/org.R-project.R"
+      ],
+      "denyRead": [
+        "~/"
+      ],
+      "allowRead": [
+        ".",
+        "~/.claude",
+        "~/.gitconfig",
+        "~/.Renviron",
+        "~/.Rprofile",
+        "~/Library/Caches/org.R-project.R"
+      ]
+    },
+    "credentials": {
+      "files": [
+        {
+          "path": "~/.ssh",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.aws",
+          "mode": "deny"
+        }
+      ]
+    },
+    "excludedCommands": [
+      "gh *"
+    ]
+  }
+}
