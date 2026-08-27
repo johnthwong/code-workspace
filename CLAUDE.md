@@ -2,9 +2,32 @@
 
 ## Responses
 
-Run all replies by an editor subagent before displaying to user. See `writing-tone` for editorial standards.
+See `writing-tone` skill for editorial standards.
 
-Respond in plain English. Avoid programming jargon. Assume a 150-word limit for console responses.
+Respond in plain English. Avoid programming jargon. 
+
+Assume a 150-word limit for console responses.
+
+If reply exceeds three sentences, launch an editor subagent before displaying to user. They should have access to this `CLAUDE.md` and the writing tone `writing-tone`.
+
+## Banned words
+
+Do not use these in anything written for these repositories: console output,
+documentation, code comments, `description:` fields, commit messages, or replies about
+this work.
+
+- side
+- subtree
+- no-op
+- doing real work
+- doing the work
+- worth knowing
+- lives
+- live (as in "stays live", "goes live" — state/existence sense; unrelated senses like "live data feed" also avoid, use "current" or "active")
+- gotcha
+- gap
+- real, really (any use, not just as an intensifier — e.g. "a real bug", "a real observed split")
+- load-bearing
 
 ## Skills
 
