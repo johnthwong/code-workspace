@@ -34,6 +34,7 @@ this work.
 - gap
 - real, really (any use, not just as an intensifier — e.g. "a real bug", "a real observed split")
 - load-bearing
+- land, lands, landed (as in "the change lands", "once it lands")
 
 ## Skills
 
