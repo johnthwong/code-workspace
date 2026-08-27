@@ -18,7 +18,7 @@ Each skill is a directory with a `SKILL.md` entrypoint:
 └── scripts/           # Optional — scripts Claude can execute
 ```
 
-Skills live in one of these locations:
+Skills are stored in one of these locations:
 - `~/.claude/skills/<name>/` — personal, applies to all projects
 - `.claude/skills/<name>/` — project-scoped, shared via version control
 
@@ -36,7 +36,7 @@ name: my-skill                    # Lowercase, hyphens, max 64 chars. Defaults t
 description: What it does         # How Claude decides when to use it. Front-load the key use case.
 when_to_use: Extra trigger hints  # Appended to description for matching. Combined cap: 1536 chars.
 argument-hint: "[issue-number]"   # Shown during autocomplete.
-disable-model-invocation: true    # Prevent Claude from auto-invoking. Use for side-effect workflows.
+disable-model-invocation: true    # Prevent Claude from auto-invoking. Use for workflows with external effects.
 user-invocable: false             # Hide from /menu. Use for background knowledge only Claude loads.
 allowed-tools: Bash(git *) Read   # Pre-approve tools so Claude doesn't prompt for each use.
 context: fork                     # Run in a subagent (isolated context, no conversation history).
@@ -58,7 +58,7 @@ paths: "src/**/*.ts"              # Only activate when working with matching fil
 | Want | Set |
 |---|---|
 | Both user and Claude can invoke | (defaults) |
-| Only user invokes (side effects like deploy, commit) | `disable-model-invocation: true` |
+| Only user invokes (external effects like deploy, commit) | `disable-model-invocation: true` |
 | Only Claude invokes (background knowledge) | `user-invocable: false` |
 
 ## Rules of thumb

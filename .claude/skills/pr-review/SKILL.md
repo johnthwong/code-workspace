@@ -32,13 +32,13 @@ Review pull request(s): $ARGUMENTS
 A review with nothing to report is a valid review. Do not pad it.
 
 - Judge every candidate issue against how this codebase is actually used. An edge case that the
-  code's real inputs cannot produce is not an issue. Unvalidated input from a source that is
+  code's actual inputs cannot produce is not an issue. Unvalidated input from a source that is
   controlled by the repo, a file the analyst writes by hand, or a hardcoded config is not an
   issue.
 - Drop findings whose fix would be speculative hardening: defensive checks for conditions that
   cannot occur, error handling for calls that cannot fail here, generality no caller needs.
-- Drop style, naming, and formatting observations unless they cause a real misreading.
-- Do not report a finding to demonstrate thoroughness. Padding the list makes the real findings
+- Drop style, naming, and formatting observations unless they cause a misreading.
+- Do not report a finding to demonstrate thoroughness. Padding the list makes the findings
   harder to see and costs the author time verifying non-problems.
 - If a concern depends on an assumption about usage you cannot verify, either check it against
   the codebase or state it as a question rather than a finding.
