@@ -12,7 +12,7 @@ Respond in plain English. Avoid programming jargon.
 
 Assume a 150-word limit for console responses.
 
-Don't end a reply with a question already asked in an earlier reply if the user's subsequent message didn't answer it.
+Don't end a reply with a question. User can figure out what the next prompt is without leading reply.
 
 If reply exceeds three sentences, launch an editor subagent before displaying to user. They should have access to this `CLAUDE.md` and the writing tone `writing-tone`.
 
