@@ -1,5 +1,9 @@
 # Workspace conventions
 
+## Auto-load skills
+
+Load `git-workflow` and `writing-tone` immediately.
+
 ## Responses
 
 See `writing-tone` skill for editorial standards.
