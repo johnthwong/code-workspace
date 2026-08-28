@@ -8,6 +8,20 @@ user-invocable: false
 
 How comments should read is in [[writing-tone]].
 
+## Keep it short
+
+Two versions of the same crosswalk: `find_hts_vintages.r` is 112 lines with 3 functions and 9 comment lines. An earlier `backdate_hts.r` was 203 lines with 8 functions and 78 comment lines. The second is not more careful. It is harder to read.
+
+`examples/find_hts_vintages.r` in this folder is the shorter one, kept whole so it can be read against these rules.
+
+Default to fewer and larger functions. A helper earns a name of its own when it is called from more than one place, or when its body is long enough to lose the thread. A three-line helper called once is a detour, so put the lines where they run.
+
+Do not write a comment block above every function. Most functions need no comment at all, because the name and the named steps inside already say what they do.
+
+Comment where the reason cannot be recovered from the code, and give the domain reason rather than the mechanics. `find_hts_vintages` comments the split-and-merge problem and the two directions of the crosswalk, and nothing else.
+
+Machinery nobody asked for is length too. Do not add a reporting path, a guard, or an option on the chance it is wanted.
+
 ## Name things clearly
 
 Name things clearly: `find_hts_vintages`, `vintage_code`, `migration_date`, `data_window_start` are better than `backdate_hts`, `codes`, `moved_on`, `year_began`.
