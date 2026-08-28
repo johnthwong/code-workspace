@@ -48,6 +48,7 @@ paths: "src/**/*.ts"              # Only activate when working with matching fil
 ### Body guidelines
 
 - **Be specific and actionable.** Write numbered steps Claude can execute, not vague guidance.
+- Keep it short! Don't over-explain a rule.
 - **Use `$ARGUMENTS`** for user input. `$0`, `$1` etc. for positional args.
 - **Use `` !`command` ``** to inject dynamic context (runs before Claude sees the prompt).
 - **Reference supporting files** from SKILL.md so Claude knows when to load them.
