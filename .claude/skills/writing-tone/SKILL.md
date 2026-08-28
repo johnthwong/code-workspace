@@ -111,8 +111,21 @@ Written for a reader who did not watch the commits happen and does not read code
   merge them into a single item.
 - **Describe what the current version does, not how it got there.** Do not narrate the bug: no "an
   error where X used to zero out Y," no "this used to do Z but now does W." State the end behavior
-  plainly, as if it had always been that way. The history belongs in the commit log, which the
-  reader can already open.
+  plainly. The history belongs in the commit log, which the reader can already open.
+- **But mark the contrast, with "Previously" and "Now."** Give the situation the change addresses
+  its own short paragraph opening "Previously," and the new behavior its own opening "Now."
+  Blending the two, or leaving the first out to avoid sounding historical, costs the reader the
+  thing they came for, which is what moved. The "Previously" paragraph describes the standing
+  situation in the world — codes are renumbered twice a year, the schedule changes mid-year — not
+  a defect in the code and not what the last commit did. That is the line between this and the
+  bullet above.
+- **Leave the measurements out.** No counts of files, codes, or configs touched, no dollar figure
+  for what the change now reaches, no before-and-after totals. A reviewer is deciding whether the
+  behavior is right, and a number telling them how much it moves does not help with that. Put
+  those in the issue or a comment if someone asks.
+- **One outstanding item, labelled as outstanding.** Write "Pending issue:" and the single thing
+  still open. Do not bundle caveats behind a count ("Two limits."), which reads as hedging, and do
+  not report the state of the working tree or anything else the reader cannot act on.
 - **Say what a tool does for the reader, not how it is implemented.** "Looks up a multiplier by
   name" is a PR line; "wraps `get_multiplier()` and lazy-loads `trade_data` if the session doesn't
   have it" is an implementation note that belongs in the commit message, not the summary a reviewer
