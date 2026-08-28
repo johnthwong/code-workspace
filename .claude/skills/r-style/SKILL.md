@@ -20,7 +20,7 @@ Do not write a comment block above every function. Most functions need no commen
 
 Comment where the reason cannot be recovered from the code, and give the domain reason rather than the mechanics. `find_hts_vintages` comments the split-and-merge problem and the two directions of the crosswalk, and nothing else.
 
-Machinery nobody asked for is length too. Do not add a reporting path, a guard, or an option on the chance it is wanted.
+Minimize unnecessary guards and options.
 
 ## Name things clearly
 
