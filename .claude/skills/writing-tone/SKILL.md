@@ -68,6 +68,7 @@ department and agency names.
 
 - Explain behavior in terms of what the code does, not in terms of a metaphor for what it does.
 - State what is true now. Mark anything aspirational or not yet built as such, and do not describe planned structure as though it exists.
+- When updating a document, replace the old content. Do not narrate what changed or what a previous version said.
 - Prefer naming the file and function a reader should look at over paraphrasing them.
 
 ### Keep comments in configuration and data files short

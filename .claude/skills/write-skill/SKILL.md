@@ -68,3 +68,5 @@ paths: "src/**/*.ts"              # Only activate when working with matching fil
 - **One concern per skill.** Don't bundle unrelated procedures.
 - **Description is critical.** Claude uses it to decide relevance. Front-load the key verb and use case.
 - **Test by invoking.** Type `/skill-name` to verify it loads and behaves as expected.
+- **Document what is true now.** When updating a skill, replace the old content. Do not narrate what changed, what an earlier version said, or what was fixed.
+- **State the rule and stop.** Do not explain why the rule exists or what would happen without it.
