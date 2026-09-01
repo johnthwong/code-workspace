@@ -15,6 +15,7 @@
 !/.claude/skills/
 !/.claude/hooks/
 !/.claude/agents/
+!/.github/
 
 # Block .DS_Store everywhere, even inside unblocked directories
 .DS_Store
