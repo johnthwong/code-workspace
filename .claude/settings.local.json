@@ -46,6 +46,7 @@
       ],
       "allowRead": [
         ".",
+        "~/code",
         "~/.claude",
         "~/.gitconfig",
         "~/.Renviron",
