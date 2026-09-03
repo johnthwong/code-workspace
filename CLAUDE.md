@@ -8,7 +8,7 @@ Load `git-workflow` and `writing-tone` immediately.
 
 See `writing-tone` skill for editorial standards.
 
-Respond in plain English. Avoid programming jargon. 
+Respond in plain English. Avoid programming jargon. Please remove all mannered prose.
 
 Assume a 150-word limit for console responses.
 
