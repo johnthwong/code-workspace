@@ -35,6 +35,7 @@ this work.
 - real, really (any use, not just as an intensifier — e.g. "a real bug", "a real observed split")
 - load-bearing
 - land, lands, landed (as in "the change lands", "once it lands")
+- expose, exposes, exposed ("this feature is exposed to the UI as this menu")
 
 ## Skills
 
