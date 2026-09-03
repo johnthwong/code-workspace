@@ -42,7 +42,12 @@
         "~/Library/Caches/org.R-project.R"
       ],
       "denyRead": [
-        "~/"
+        "~/Library",
+        "~/Desktop",
+        "~/Downloads",
+        "~/Documents",
+        "~/Pictures",
+        "~/notes"
       ],
       "allowRead": [
         ".",
