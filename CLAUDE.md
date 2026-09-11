@@ -37,6 +37,7 @@ this work.
 - land, lands, landed (as in "the change lands", "once it lands")
 - expose, exposes, exposed ("this feature is exposed to the UI as this menu")
 - earn its keep, earns its keep
+- carry its name
 
 ## Skills
 
