@@ -2,7 +2,7 @@
 
 ## Auto-load skills
 
-Load `git-workflow` and `writing-tone` immediately.
+Load `git-workflow`, `writing-tone`, and `r-style` immediately.
 
 ## Responses
 
@@ -36,6 +36,7 @@ this work.
 - load-bearing
 - land, lands, landed (as in "the change lands", "once it lands")
 - expose, exposes, exposed ("this feature is exposed to the UI as this menu")
+- earn its keep, earns its keep
 
 ## Skills
 
