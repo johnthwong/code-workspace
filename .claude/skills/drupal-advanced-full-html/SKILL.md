@@ -20,6 +20,14 @@ Convert a standalone HTML page into a Drupal "Advanced Full HTML"-compatible fra
   `scroll-margin-top` to clear the panel if it doesn't.
 - No external `<link>` tags (e.g. Google Fonts) — these get stripped outside a `<head>`. Rely on
   the site's default fonts instead (see Fonts section below).
+- **`<img>` tags with `data:` URI `src` attributes are stripped.** Do not embed images as base64
+  data URIs in `<img>` elements. If the image must be inline, create it via JS after page load
+  (e.g., as an SVG `<image>` element) so Drupal's server-side filter never sees it — though even
+  then, large base64 strings inside `<script>` can cause parsing problems. Prefer referencing
+  images already hosted on the site.
+- **`<figure>` and `<figcaption>` are stripped.** Use a `<div>` with a scoped class (e.g.,
+  `.your-prefix-name .caption`) and apply caption styling with `!important` to override the
+  theme's `<p>` font size.
 - Wrap everything in **one uniquely-named wrapper `<div class="your-prefix-name">`** and scope
   every CSS selector under that class (e.g. `.your-prefix-name .chip`) so styles can't leak into
   or collide with the host site's global styles.
