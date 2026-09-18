@@ -39,6 +39,12 @@ this work.
 - earn its keep, earns its keep
 - carry its name
 
+## Commits
+
+Commit after completing work for each prompt. Never leave the working tree dirty
+when yielding back to the user. Follow `git-workflow` for branch, message, and
+push conventions.
+
 ## Skills
 
 Skills are stored in `.claude/skills/` and shared across projects via version control.
