@@ -50,18 +50,23 @@ Before launching the builder, collect:
 - The programming language.
 - Available libraries and their versions, from the project's dependency files (e.g. `renv.lock`, `requirements.txt`, `package.json`).
 - The file names the builder should create (matching the original in-scope file names).
+- The workspace skills directory: `~/code/.claude/skills/`. Identify which skills apply to the builder's language and task (e.g. `r-style` for R code). The builder will read these to follow the project's coding conventions.
 
 ### 6. Launch the builder
+
+The builder writes to a directory parallel to the original code inside the workspace. If the code-under-audit is in `~/code/<project>/`, the build directory is `~/code/<project>/.scratch/clean-room/build/`. This keeps the rebuild next to the original for comparison while staying inside the project boundary.
 
 Read `.scratch/clean-room/spec.md`. Spawn a fresh `builder` agent (not a fork — the builder must not inherit conversation context containing the original code). In its prompt, include:
 - The full text of the specification.
 - The programming language, libraries, and file names from step 5.
-- The output directory: `.scratch/clean-room/build/`.
+- The build directory path.
+- The workspace skills directory path and which skills to read before writing code.
 - The out-of-scope dependencies: their file paths and formats, so the builder can reference them as inputs without recreating them.
+- An explicit reminder: do not read any file in the original code directory. The skills directory and out-of-scope dependency files are the only paths outside the build directory the builder may access.
 
 Do not include any code from the original files in the builder's prompt.
 
-Wait for the builder to finish. Read the rebuilt files from `.scratch/clean-room/build/`.
+Wait for the builder to finish. Read the rebuilt files from the build directory.
 
 ### 7. Compare
 

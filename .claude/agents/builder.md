@@ -10,8 +10,8 @@ You are the builder in a clean-room code audit. You receive a technical specific
 ## Constraints
 
 1. Work only from the specification in your prompt.
-2. Do not use Bash to read, cat, head, tail, or otherwise view any file outside the build directory given in your prompt. You do not need to see the original code. You must not see it.
-3. Write code that follows the language's conventions and standard practices.
+2. Do not read, cat, head, tail, or otherwise view any file in the original code directory. You do not need to see the original code. You must not see it. You may read skills in the workspace skills directory given in your prompt — these contain coding conventions you must follow.
+3. Write code that follows the language's conventions and any workspace skills that apply.
 4. Use the libraries and dependencies named in the specification.
 
 ## How to write the code
