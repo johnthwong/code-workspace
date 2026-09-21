@@ -68,7 +68,26 @@ Do not include any code from the original files in the builder's prompt.
 
 Wait for the builder to finish. Read the rebuilt files from the build directory.
 
-### 7. Compare
+### 7. Run both implementations
+
+Run the original code and the rebuilt code against the same input data, each writing to its own output directory. The rebuild's output goes under `.scratch/clean-room/build/`. The original's output stays in its existing location (or a copy of it, if re-running would overwrite outputs the user needs to preserve — ask before overwriting).
+
+To run the rebuild:
+- Create a `.here` sentinel (or equivalent project-root marker) in the build directory so path-resolution libraries find it.
+- Symlink or copy the raw input data into the build directory's expected input path (e.g. `data/raw/`). Do not duplicate large files; symlinks are preferred.
+- Make the project's package library available to the rebuild (e.g. prepend the renv library path to `.libPaths()` in R, or activate the virtualenv in Python).
+- Run each step in order. If a step fails, record the error and continue to the next step that does not depend on the failed step's output. If a step exhausts memory, retry it in a fresh process.
+
+After both have run, write a comparison script that:
+- Reads each pair of output files (original and rebuild).
+- For numeric columns, computes the maximum absolute difference. Report any column where the difference exceeds a tolerance of 1e-10.
+- For non-numeric columns, reports type mismatches (e.g. integer vs double, logical vs numeric).
+- For CSV outputs, accounts for row-ordering and formatting differences (quoting, delimiter) before comparing values.
+- Reports columns or files present in one output but not the other.
+
+Run the comparison script and include its results in the report. A step that produces identical output in both implementations confirms the static comparison found no logic discrepancy for that step. A step where outputs differ, or where one crashes and the other does not, is a finding.
+
+### 8. Static comparison
 
 Read the original files and the rebuilt files. For each pair, identify substantive discrepancies — differences in domain logic, formulas, data transformations, edge-case handling, or control flow. Ignore cosmetic differences: naming, style, comment placement, import order.
 
@@ -79,12 +98,17 @@ Classify each discrepancy as one of:
 - **Formula mismatch.** Both implement the same rule but use different expressions. Check whether they produce the same result for all inputs. If they diverge for any input, describe when.
 - **Edge-case divergence.** The two handle a boundary condition differently, or one handles it and the other does not.
 
-### 8. Report
+The runtime results from step 7 take precedence over the static analysis. If two implementations produce identical output on the actual data, a static discrepancy (such as differing NA-handling in a column that never contains NA) should be noted but classified as having no practical impact. Conversely, a runtime failure (crash, wrong output) that the static analysis missed is a finding.
 
-Present each discrepancy with:
+### 9. Report
+
+Start the report with the runtime comparison results: a table showing each output file, its record count, column count, and how many value differences were found. Steps with zero differences get one row. Steps where one implementation crashed get a description of the failure.
+
+Then present each discrepancy with:
 - The file and domain rule involved.
 - What the original does.
 - What the rebuild does.
+- Whether the discrepancy was confirmed at runtime (outputs differ or one crashed) or is theoretical only (outputs match despite the static difference).
 - Why the difference matters, or a note that it may not.
 
 If the user changed the specification in step 4, include a separate section listing each user-specification divergence: what the documenter originally wrote (reflecting the code's actual behavior), what the user changed it to (reflecting the user's intended behavior), and which in-scope files are affected. These are places where the code does not match the user's intent and may contain bugs the clean-room comparison alone would not catch, because the builder worked from the corrected specification.
